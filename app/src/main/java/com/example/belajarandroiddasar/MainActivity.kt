@@ -1,6 +1,9 @@
 package com.example.belajarandroiddasar
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +20,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hello_world)
+
+        val nameEditText: EditText = findViewById(R.id.nameEditText)
+        val sayHelloButton: Button = findViewById(R.id.sayHelloButton)
+        val sayHelloTextView: TextView = findViewById(R.id.sayHelloTextView)
+
+        sayHelloTextView.text = "Hai"
+
+        sayHelloButton.setOnClickListener {
+            val name = nameEditText.text.toString()
+            sayHelloTextView.text = "Hai $name"
+        }
     }
 
     @Composable
